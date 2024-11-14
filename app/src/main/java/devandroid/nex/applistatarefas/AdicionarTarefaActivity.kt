@@ -1,6 +1,7 @@
 package devandroid.nex.applistatarefas
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import devandroid.nex.applistatarefas.database.TarefaDAO
@@ -37,5 +38,17 @@ class AdicionarTarefaActivity : AppCompatActivity() {
         }else {
             Toast.makeText(this, "Preencha uma tarefa", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun atualizar(){
+
+    }
+
+    private fun deletar(){
+
+
+    }
+    private fun listar(){
+
     }
 }

@@ -75,17 +75,19 @@ class TarefaDAO(context: Context) : iTarefaDAO {
                 "FROM ${DatabaseHelper.TABELA_TAREFAS};"
 
         val cursor = leitura.rawQuery(sql, null)
+
         val indiceId = cursor.getColumnIndex(DatabaseHelper.ID_TAREFA)
-        val indiceDescricao = cursor.getColumnIndex(DatabaseHelper.DATA_CADASTRO)
+        val indiceDescricao = cursor.getColumnIndex(DatabaseHelper.DESCRICAO)
         val indiceDataCadastro = cursor.getColumnIndex(DatabaseHelper.DATA_CADASTRO)
         while(cursor.moveToNext()){
-            val idTarefa = cursor.getInt(indiceId)
-            val descricao = cursor.getString(indiceDescricao)
-            val dataCadastro = cursor.getString(indiceDataCadastro)
+            val idTarefa = if (indiceId != -1 )cursor.getInt(indiceId) else 0
+            val descricao = if(indiceDescricao != -1 )cursor.getString(indiceDescricao) else ""
+            val dataCadastro = if(indiceDataCadastro != -1 )cursor.getString(indiceDataCadastro) else ""
             list.add(
                 Tarefa(idTarefa,descricao,dataCadastro)
             )
         }
+        cursor.close()
         return list
     }
 }

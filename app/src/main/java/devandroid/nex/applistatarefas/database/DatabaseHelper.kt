@@ -3,7 +3,6 @@ package devandroid.nex.applistatarefas.database
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import android.util.Log
 
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(
     context, NOME_BANDO_DADOS, null, VERSAO
